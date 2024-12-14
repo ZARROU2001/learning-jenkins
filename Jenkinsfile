@@ -16,16 +16,22 @@ pipeline {
         stage('Build and Push Microservices') {
             steps {
                 script {
-                    def microservices = ['auth-service', 'user-service', 'gold-price-service', 'notification-service', 'blockchain-service']
+                    def microservices = [
+                        'auth_service',
+                        'blockchain_interaction_service',
+                        'goldProjectService',
+                        'notification_service',
+                        'user_microservice'
+                    ] // Update this list with your actual service directory names
 
                     microservices.each { service ->
-                        dir(service) {
+                        dir("backend/${service}") { // Adjust path to match your repository structure
                             echo "Processing ${service}..."
 
-                            // Multi-stage build for optimized Docker image
+                            // Build the Docker image
                             sh "docker build -f Dockerfile -t ${env.DOCKER_CREDENTIALS_USR}/${service}:latest ."
 
-                            // Push Docker image to Docker Hub
+                            // Push the Docker image to Docker Hub
                             sh "docker push ${env.DOCKER_CREDENTIALS_USR}/${service}:latest"
                         }
                     }
