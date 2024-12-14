@@ -1,0 +1,25 @@
+@import "../login/login.component";
+
+.error mat-form-field {
+    border-color: red;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+// .regLogo{
+//     width: 100px !important;
+//     height: 100px !important;
+// }
+
+.h-100vh {
+    height: 100vh; /* Garde la hauteur de l'écran */
+    overflow-y: auto; /* Ajoute un défilement vertical si le contenu déborde */
+  }
+
+  .pb-50 {
+    padding-bottom: 100px; /* Ajoutez plus d'espace au bas */
+  }
+  
+  

@@ -1,0 +1,146 @@
+<div
+  class="h-100vh pt-50 pb-50"
+  [class.component-dark-theme]="themeService.isDark()"
+  [class.card-borderd-theme]="themeService.isCardBorder()"
+  [class.card-border-radius]="themeService.isCardBorderRadius()"
+  [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+>
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="tagus-form ms-auto me-auto">
+        <!-- Logo Section -->
+        <div class="logo-container text-center mb-20">
+          <img src="img/logo-icon.png" alt="logo-icon">
+        </div>
+        <!-- Title Section -->
+        <div class="title text-center">
+          <h2 class="mb-10">Get Started</h2>
+          <p>
+            Already have an account? 
+            <a routerLink="/authentication" class="main-color fw-medium">Login now!</a>
+          </p>
+        </div>
+        <!-- Login Form -->
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="bg-white border-radius pt-20 ps-20 pe-20">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div
+                  class="tagus-form-group"
+                  [class.error]="isFieldInvalid('firstName')"
+                >
+                  <label class="d-block mb-12 fw-semibold gray-color">First Name</label>
+                  <mat-form-field appearance="fill">
+                    <i class="ri-user-3-line"></i>
+                    <mat-label>Enter name</mat-label>
+                    <input matInput formControlName="firstName" />
+                  </mat-form-field>
+                  <div *ngIf="isFieldInvalid('firstName')" class="error-message">
+                    First name is required.
+                  </div>
+                  <br>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div
+                  class="tagus-form-group"
+                  [class.error]="isFieldInvalid('lastName')"
+                >
+                  <label class="d-block mb-12 fw-semibold gray-color">Last Name</label>
+                  <mat-form-field appearance="fill">
+                    <i class="ri-user-3-line"></i>
+                    <mat-label>Enter name</mat-label>
+                    <input matInput formControlName="lastName" />
+                  </mat-form-field>
+                  <div *ngIf="isFieldInvalid('lastName')" class="error-message">
+                    Last name is required.
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+            <div class="tagus-form-group without-icon" [class.error]="isFieldInvalid('username')">
+              <label class="d-block mb-12 fw-semibold gray-color">Username <span>*</span></label>
+              <mat-form-field appearance="fill">
+                <mat-label>Enter your username</mat-label>
+                <input matInput formControlName="username" />
+              </mat-form-field>
+              <div *ngIf="isFieldInvalid('username')" class="error-message">
+                Username is required.
+              </div>
+              <br>
+            </div>
+            <div class="tagus-form-group without-icon" [class.error]="isFieldInvalid('email')">
+              <label class="d-block mb-12 fw-semibold gray-color">Email Address <span>*</span></label>
+              <mat-form-field appearance="fill">
+                <mat-label>Enter email address</mat-label>
+                <input matInput formControlName="email" />
+              </mat-form-field>
+              <div *ngIf="isFieldInvalid('email')" class="error-message">
+                Valid email is required.
+              </div>
+              <br>
+            </div>
+            <div class="tagus-form-group without-icon" [class.error]="isFieldInvalid('password')">
+              <label class="d-block mb-12 fw-semibold gray-color">Password <span>*</span></label>
+              <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                  formControlName="password"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div *ngIf="isFieldInvalid('password')" class="error-message">
+                Password must be at least 6 characters.
+              </div>
+              <br>
+            </div>
+            <div
+              class="tagus-form-group without-icon"
+              [class.error]="isFieldInvalid('confirmPassword')"
+            >
+              <label class="d-block mb-12 fw-semibold gray-color">Confirm Password <span>*</span></label>
+              <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                  formControlName="confirmPassword"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div *ngIf="isFieldInvalid('confirmPassword')" class="error-message">
+                Confirm password is required.
+              </div>
+            </div>
+          </div>
+          <button
+            mat-flat-button
+            class="tagus d-block fw-semibold"
+            [disabled]="registerForm.invalid"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

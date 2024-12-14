@@ -1,0 +1,822 @@
+<div
+    class="sidebar-area bg-white box-shadow"
+    [ngClass]="{'active': isToggled}"
+    [class.dark-sidebar]="themeService.isSidebarDark()"
+    [class.right-sidebar]="themeService.isRightSidebar()"
+    [class.hide-sidebar]="themeService.isHideSidebar()"
+>
+    <div class="logo bg-white">
+        <a routerLink="/" class="d-flex align-items-center">
+            <img src="img/logo-icon.png" alt="logo">
+            <span>TrustGild</span>
+        </a>
+    </div>
+    <div class="burger-menu" (click)="toggle()" [ngClass]="{'active': isToggled}">
+        <span class="top-bar"></span>
+        <span class="middle-bar"></span>
+        <span class="bottom-bar"></span>
+    </div>
+    <ng-scrollbar visibility="hover" style="height: 100vh;">
+        <div class="sidebar-inner">
+            <div class="sidebar-menu">
+                <mat-accordion>
+                    <span class="sub-title gray-color">MAIN</span>
+                    <a routerLink="/crypto" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-to-do-list"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                    <!-- Users page -->
+                    <a routerLink="/users" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-user-1"></i>
+                        <span class="title">Users</span>
+                    </a>
+                    <!-- Buy Page -->
+                    <a routerLink="/buy" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-user-1"></i>
+                        <span class="title">Buy Gold</span>
+                    </a>
+                    <!-- Sell page -->
+                    <a routerLink="/sell" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-user-1"></i>
+                        <span class="title">Sell Gold</span>
+                    </a>
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-envelope"></i>
+                                <span class="title">Email</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="email" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Inbox
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/email/compose" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Compose
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/email/read" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Read Email
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <!-- <a routerLink="/chat" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-comment"></i>
+                        <span class="title">Chat</span>
+                    </a> -->
+                    <span class="sub-title gray-color">PAGES</span>
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-phone-call"></i>
+                                <span class="title">Contact List</span>
+                                <span class="badge two">4</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/contacts-list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Members Grid
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/contacts-list/members-grid-2" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Members Grid 2
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/contacts-list/members-list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Members List
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/contacts-list/member-profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Member Profile
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-printer"></i>
+                                <span class="title">Invoice</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/invoice" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Invoice List
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/invoice-details" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Invoice Details
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-resume"></i>
+                                <span class="title">Projects</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects/clients" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Clients
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects/team" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Team
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Projects
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects/kanban-board" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Kanban Board
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects/tasks" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Tasks
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects/users" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Users
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/projects/project-create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Project Create
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-bookmark"></i>
+                                <span class="title">Courses</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/courses" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Browse Courses
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/course-details" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Course Details
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/lesson-preview" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Lesson Preview
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-graph"></i>
+                                <span class="title">Analytics</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/analytics-page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Customers
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/analytics-page/reports" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Reports
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-shopping-cart-2"></i>
+                                <span class="title">eCommerce</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Products
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/product-details" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Product Details
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/create" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Create Product
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/orders" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Orders
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/order-details" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Order Details
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/customers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Customers
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/cart" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Cart
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/checkout" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Checkout
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ecommerce-page/sellers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Sellers
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-setting"></i>
+                                <span class="title">UI Elements</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Alerts
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/autocomplete" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Autocomplete
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/avatars" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Avatars
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/accordion" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Accordion
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/badges" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Badges
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/breadcrumb" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Breadcrumb
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/button-toggle" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Button Toggle
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/buttons" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Buttons
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/cards" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Cards
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/carousels" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Carousels
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/checkbox" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Checkbox
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/chips" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Chips
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/color-picker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Color Picker
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/datepicker" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Datepicker
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/dialog" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Dialog
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/divider" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Divider
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/drag-drop" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Drag & Drop
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/expansion" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Expansion
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/form-field" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Form Field
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/grid" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Grid
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/images" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Images
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/input" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Input
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    List
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/listbox" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Listbox
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/menus" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Menus
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/pagination" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Pagination
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/progress-bar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Progress Bar
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/radio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Radio
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/select" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Select
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/sidenav" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Sidenav
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/slide-toggle" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Slide Toggle
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/slider" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Slider
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/spacing" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Spacing
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/snackbar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Snackbar
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/stepper" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Stepper
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/table" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Table
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/tabs" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Tabs
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/toolbar" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Toolbar
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/tooltip" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Tooltip
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/tree" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Tree
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/typography" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Typography
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/ui-kit/videos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Videos
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-flash"></i>
+                                <span class="title">Icons</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/icons" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Flaticon
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/icons/remixicon" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Remixicon
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/icons/material" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Material Icons
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/icons/material-symbols" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Material Symbols
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-diskette"></i>
+                                <span class="title">Tables</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/tables" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Basic Table
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/tables/data" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Data Table
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-swipe"></i>
+                                <span class="title">Forms</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/forms" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Basic Elements
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/forms/advanced" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Advanced Elements
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/forms/wizard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Wizard
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/forms/editors" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Editors
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/forms/file-uploader" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    File Uploader
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-pie-chart-3"></i>
+                                <span class="title">Charts</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/charts" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Apexcharts
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/charts/echarts" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Echarts
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/charts/chartjs" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Chartjs
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-lock"></i>
+                                <span class="title">Authentication</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Login
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Register
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication/signin-signup" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Signin - Signup
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication/forgot-password" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Forgot Password
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication/reset-password" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Reset Password
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication/confirm-mail" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Confirm Mail
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/authentication/lock-screen" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Lock Screen
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-copy"></i>
+                                <span class="title">Extra Pages</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/pricing" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Pricing
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/timeline" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Timeline
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/faq" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/gallery" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Gallery
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/testimonials" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Testimonials
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/search" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Search
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/coming-soon" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Coming Soon <span class="badge">New</span>
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/blank-page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Blank Page
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel> -->
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-information"></i>
+                                <span class="title">Errors</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/not-found" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    404
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/error-500" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    500
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <a routerLink="/notifications" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-bell"></i>
+                        <span class="title">Notifications</span>
+                    </a>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-setting"></i>
+                                <span class="title">Settings</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ul class="sidebar-sub-menu">
+                            <li class="sidemenu-item">
+                                <a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Profile
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/account" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Account
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/security" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Security
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/connections" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Connections
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li class="sidemenu-item">
+                                <a routerLink="/terms-conditions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                    Terms & Conditions
+                                </a>
+                            </li>
+                        </ul>
+                    </mat-expansion-panel>
+                    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="flaticon-down-filled-triangular-arrow"></i>
+                                <span class="title">Multi Level Menu</span>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-accordion>
+                            <ul class="sidebar-sub-menu">
+                                <li class="sidemenu-item">
+                                    <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                        First
+                                    </a>
+                                </li>
+                                <li class="sidemenu-item">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Second
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <ul class="sidebar-sub-menu">
+                                            <li class="sidemenu-item">
+                                                <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                                    Second 1
+                                                </a>
+                                            </li>
+                                            <li class="sidemenu-item">
+                                                <mat-accordion>
+                                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>
+                                                                Second 2
+                                                            </mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <ul class="sidebar-sub-menu">
+                                                            <li class="sidemenu-item">
+                                                                <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                                                    Third 1
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </mat-expansion-panel>
+                                                </mat-accordion>
+                                            </li>
+                                        </ul>
+                                    </mat-expansion-panel>
+                                </li>
+                                <li class="sidemenu-item">
+                                    <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
+                                        Third
+                                    </a>
+                                </li>
+                            </ul>
+                        </mat-accordion>
+                    </mat-expansion-panel> -->
+                    <a routerLink="/authentication/logout" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="flaticon-tools"></i>
+                        <span class="title">Logout</span>
+                    </a>
+                </mat-accordion>
+            </div>
+        </div>
+    </ng-scrollbar>
+</div>

@@ -1,0 +1,41 @@
+<div
+  class="h-100vh pt-50 pb-50"
+  [class.component-dark-theme]="themeService.isDark()"
+  [class.card-borderd-theme]="themeService.isCardBorder()"
+  [class.card-border-radius]="themeService.isCardBorderRadius()"
+  [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+>
+  <!-- Carte Acheter de l'or -->
+  <mat-card
+  class="mb-25 tagus-card trading-box"
+  [class.component-dark-theme]="themeService.isDark()"
+  [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+>
+  <mat-card-header>
+      <h5 class="mb-0">Buy Coin</h5>
+      <span class="fw-semibold"><span class="main-color">Wallet Balance :</span> <span>{{ walletBalance }}</span></span>
+  </mat-card-header>
+  <mat-card-content>
+      <div class="trading-form">
+          <form (ngSubmit)="onBuy()">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="fw-semibold d-block">Currency :</label>
+                          <select [(ngModel)]="selectedCurrency" name="currency">
+                              <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="fw-semibold d-block">Payment Method :</label>
+                          <input type="text" [(ngModel)]="paymentMethod" name="paymentMethod" placeholder="Credit / Debit Card" required>
+                      </div>
+                  </div>
+            </div>
+          </form>
+      </div>
+    </mat-card-content>
+
+

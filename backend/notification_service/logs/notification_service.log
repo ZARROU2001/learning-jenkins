@@ -1,0 +1,23 @@
+2024-11-20 23:53:19,306 - INFO - Logger configured successfully
+2024-11-20 23:54:39,424 - INFO - Logger configured successfully
+2024-11-20 23:58:48,919 - INFO - Logger configured successfully
+2024-11-21 00:00:02,803 - INFO - Logger configured successfully
+2024-11-21 00:01:05,436 - INFO - Received event: b'{"email_type": "update_password", "to_email": "test@gmail.com", "user_name": "test", "reset_token": null}'
+2024-11-21 00:02:31,961 - INFO - Logger configured successfully
+2024-11-21 00:02:34,740 - INFO - Received event: b'{"email_type": "update_password", "to_email": "test@gmail.com", "user_name": "test", "reset_token": null}'
+2024-11-21 00:02:34,841 - ERROR - Error processing message: 'Settings' object has no attribute 'SMTP_USER'
+2024-11-21 00:04:31,531 - INFO - Logger configured successfully
+2024-11-21 00:04:36,521 - INFO - Received event: b'{"email_type": "update_password", "to_email": "test@gmail.com", "user_name": "test", "reset_token": null}'
+2024-11-21 00:04:38,558 - ERROR - Error processing message: module 'logging_service.logger' has no attribute 'info'
+2024-11-21 00:10:03,082 - INFO - Logger configured successfully
+2024-11-21 00:12:36,813 - INFO - Received event: b'{"email_type": "update_password", "to_email": "zarrouaz14@gmail.com", "user_name": "test", "reset_token": null}'
+2024-11-21 00:12:38,939 - INFO - Email successfully sent to zarrouaz14@gmail.com
+2024-11-21 14:07:56,306 - INFO - Logger configured successfully
+2024-11-21 14:11:06,111 - INFO - Logger configured successfully
+2024-11-21 14:14:26,844 - INFO - Transaction successful for user 0x64691a543545a66d9aC3e07Cf59C82588D83D683, tx_id: 9d5964f70ca918d2bcd49eda99f61c46c9caa5256f7c4aa642f1dc8b8d85138d. Message: Your purchase of 100 ETH was successful.
+2024-11-21 14:14:26,845 - INFO - Sending success notification to user 0x64691a543545a66d9aC3e07Cf59C82588D83D683: Your purchase of 100 ETH was successful.
+2024-11-21 14:37:51,629 - INFO - Transaction successful for user 0x64691a543545a66d9aC3e07Cf59C82588D83D683, tx_id: e0d5025105bde654c7edd352f0c1f787f2ceac6d9d69ea5b4963183b70dd317e. Message: Your purchase of 100 ETH was successful.
+2024-11-21 14:37:51,631 - INFO - Sending success notification to user 0x64691a543545a66d9aC3e07Cf59C82588D83D683: Your purchase of 100 ETH was successful.
+2024-12-07 15:24:57,962 - INFO - Logger configured successfully
+2024-12-07 15:24:58,160 - ERROR - Transaction failed for user 0x64691a543545a66d9aC3e07Cf59C82588D83D683. Message: Transaction failed: 500: You do not have enough ETH to complete this transaction.
+2024-12-07 15:24:58,160 - INFO - Sending failure notification to user 0x64691a543545a66d9aC3e07Cf59C82588D83D683: Transaction failed: 500: You do not have enough ETH to complete this transaction.

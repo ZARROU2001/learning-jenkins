@@ -1,0 +1,49 @@
+<mat-card
+    class="mb-25 tagus-card trading-box"
+    [class.component-dark-theme]="themeService.isDark()"
+    [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+>
+    <mat-card-header>
+        <h5 class="mb-0">Sell Coin</h5>
+        <span class="fw-semibold"><span class="main-color">Wallet Balance :</span> <span>{{ walletBalance }}</span></span>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="trading-form">
+            <form (ngSubmit)="onSell()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="fw-semibold d-block">Currency :</label>
+                            <select [(ngModel)]="selectedCurrency" name="currency">
+                                <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="fw-semibold d-block">Amount :</label>
+                            <input type="number" [(ngModel)]="amount" name="amount" placeholder="Enter amount" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <ul>
+                            <li class="d-flex align-items-center justify-content-space-between">
+                                <span>Estimated Rate</span>
+                                <span>{{ estimatedRate }}</span>
+                            </li>
+                            <li class="d-flex align-items-center justify-content-space-between">
+                                <span>Transaction Fees ({{ transactionFeePercentage }}%)</span>
+                                <span>{{ transactionFee }}</span>
+                            </li>
+                            <li class="d-flex align-items-center justify-content-space-between">
+                                <span>Total</span>
+                                <span>{{ total }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button mat-flat-button class="gray d-block" type="submit">Sell Coin</button>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,48 @@
+<mat-card
+    class="mb-25 tagus-card"
+    [class.component-dark-theme]="themeService.isDark()"
+    [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+>
+    <mat-card-header class="border-bottom">
+        <h5 class="mb-0">Settings</h5>
+    </mat-card-header>
+    <mat-card-content>
+        <nav>
+            <ul class="ps-0 mt-0">
+                <li>
+                    <a routerLink="/account" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Account</a>
+                </li>
+                <li>
+                    <a routerLink="/security" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Security</a>
+                </li>
+                <li>
+                    <a routerLink="/connections" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Connections</a>
+                </li>
+                <li>
+                    <a routerLink="/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Privacy Policy</a>
+                </li>
+            </ul>
+        </nav>
+        <h5 class="fw-semibold mb-20">Connected Accounts</h5>
+        <div class="d-flex mb-25 align-items-center justify-content-space-between">
+            <div class="d-flex align-items-center">
+                <img src="img/socials/google.png" alt="google">
+                <div class="ms-15">
+                    <span class="d-block mb-5 fw-semibold fs-16">Google</span>
+                    <!-- <span class="d-block gray-color">Calendar and Contacts</span> -->
+                </div>
+            </div>
+            <a routerLink="." class="fw-semibold main-color">Connected</a>
+        </div>
+        <div class="d-flex mb-25 align-items-center justify-content-space-between">
+            <div class="d-flex align-items-center">
+                <img src="img/icon/metamask.png"  style="width: 40px; height: 40px;" alt="MetaMask">
+                <div class="ms-15">
+                    <span class="d-block mb-5 fw-semibold fs-16">MetaMask</span>
+                    <!-- <span class="d-block gray-color">Communications</span> -->
+                </div>
+            </div>
+            <a routerLink="." class="fw-semibold main-color">Connected</a>
+        </div>
+    </mat-card-content>
+</mat-card>

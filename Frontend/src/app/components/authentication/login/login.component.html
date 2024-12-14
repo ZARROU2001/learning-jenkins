@@ -1,0 +1,88 @@
+<div
+  class="h-100vh pt-50 pb-50"
+  [class.component-dark-theme]="themeService.isDark()"
+  [class.card-borderd-theme]="themeService.isCardBorder()"
+  [class.card-border-radius]="themeService.isCardBorderRadius()"
+  [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+>
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="tagus-form ms-auto me-auto">
+        <!-- Logo Section -->
+        <div class="logo-container text-center mb-20">
+          <img src="img/logo-icon.png" alt="logo-icon">
+        </div>
+        <!-- Title Section -->
+        <div class="title text-center">
+          <h2 class="mb-10">Log In</h2>
+          <p>
+            Don’t have an account? 
+            <a routerLink="/authentication/register" class="main-color fw-medium">Register now!</a>
+          </p>
+        </div>
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="login-with-socials d-md-flex align-items-center justify-content-space-between">
+            <button mat-flat-button class="gray fw-semibold d-block me-5"><img src="img/icon/google.png" alt="google"> Login with Google</button>
+            <button mat-flat-button class="tagus fw-semibold d-block ms-5"><img src="img/icon/metamask.png" alt="metamask" style="width: 25px; height: 25px;">                            <!--<img src="img/icon/metamask.png" alt="metamask">--> Login with MetaMask</button>
+        </div>
+        <div class="or text-center position-relative">
+            <span class="fw-semibold fs-16">or</span>
+        </div>
+          <div class="bg-white border-radius pt-20 ps-20 pe-20">
+            <!-- Email Field -->
+            <div class="tagus-form-group without-icon" [class.error]="isFieldInvalid('email')">
+              <label class="d-block mb-12 fw-semibold gray-color">Email Address <span>*</span></label>
+              <mat-form-field appearance="fill">
+                <mat-label>Enter email address</mat-label>
+                <input matInput formControlName="email" />
+              </mat-form-field>
+              <div *ngIf="isFieldInvalid('email')" class="error-message">
+                Valid email is required.
+              </div>
+            </div>
+            <!-- Password Field -->
+            <div class="tagus-form-group without-icon" [class.error]="isFieldInvalid('password')">
+              <label class="d-block mb-12 fw-semibold gray-color">Password <span>*</span></label>
+              <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                  formControlName="password"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div *ngIf="isFieldInvalid('password')" class="error-message">
+                Password is required.
+              </div>
+            </div>
+          </div>
+          <!-- Remember Me and Forgot Password -->
+          <div class="d-flex info align-items-center justify-content-space-between mb-20">
+            <mat-checkbox class="gray-color">Remember me</mat-checkbox>
+            <a routerLink="/authentication/forgot-password" class="d-inline-block main-color fw-medium">
+              Forgot your password?
+            </a>
+          </div>
+          <!-- Submit Button -->
+          <button
+            mat-flat-button
+            class="tagus d-block fw-semibold"
+            [disabled]="loginForm.invalid"
+          >
+            Log In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
