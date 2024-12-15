@@ -19,7 +19,7 @@ pipeline {
                     def microservices = [
                         'auth_service',
                         'blockchain_interaction_service',
-                        'goldProjectService',
+                        'gold-project-service',
                         'notification_service',
                         'user_microservice'
                     ] // Update this list with your actual service directory names
